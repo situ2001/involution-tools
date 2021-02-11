@@ -27,7 +27,7 @@ def test(school_id):
     
     gpas.append(float(gpa[0]))
 
-for x in os.listdir(path=r'.\pdfs'):
+for x in os.listdir(path=r'.{}pdfs'.format(os.sep)):
     try:
         print (x)
         test(x)
