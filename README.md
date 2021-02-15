@@ -25,7 +25,15 @@ pip install -r requirements.txt
 
 For more detail, please run with `-h` argument.
 
-一般是，先下载后解析，下面是解析一段学号的示例
+一般是，先下载后解析，下面是一些示例
+
+获取自己的
+
+``` shell
+python run.py query --stu-id <你的学号> --query-mode single
+```
+
+获取一段学号的
 
 ``` shell
 python run.py query --stu-id <你的学号> --query-mode multiple --begin <号段初的学号> --end <号段末的学号>
@@ -38,8 +46,8 @@ python run.py parse
 
 ## TODO
 
-- [x] use `argparse` for better user experience
-- [x] single querying
+- [x] ~~use `argparse` for better user experience~~
+- [x] ~~single querying~~
 - [ ] more method of parsing the data
 - [ ] single querying for others stu_id
 - [ ] refine the logic in run.py
