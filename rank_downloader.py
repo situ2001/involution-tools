@@ -1,19 +1,12 @@
-import shutil
-from load_from_cookies import load_from_cookies
 import msession
 import re
 import camelot
 import os
-import sys
 
-session = msession.session
-args = sys.argv
-
-load_from_cookies(args[1])
-
-url = msession.urls.rank
-
-def output(stu_id):
+def download(stu_id):
+    session = msession.session
+    url = msession.urls.rank
+    
     data_post = {
         'pk': '114514',
         'pk_1': '1919810',
@@ -54,20 +47,3 @@ def output(stu_id):
     print ('your GPA is %s/4.0' %(gpa[0]), end='')
     rank = re.findall(r'ranked (?P<rank>[\d]+) among (?P<total>[\d]+)', res)
     print (', rank is %s/%s' %(rank[0][0], rank[0][1]))
-
-begin = int(args[2])
-end = int(args[3])
-
-print ('Begin downloading...')
-
-if os.path.exists('pdfs'):
-    shutil.rmtree('pdfs')
-
-os.mkdir('pdfs')
-
-for x in range(end - begin + 1):
-    stu_id = str(begin + x)
-    try:
-        output(stu_id=stu_id)
-    except IndexError:
-        print ('Index out of range')

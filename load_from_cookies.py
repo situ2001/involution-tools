@@ -29,5 +29,6 @@ def load_from_cookies(usrname):
     print ('Testing accessibility to 教务系统... ')
     
     if not test_connection(msession.urls.jwxt, '个人信息'):
-        print ('Failed')
-        exit(0)
+        print ('Failed, please login again manually')
+        password = input('Please input the password of {}:'.format(usrname))
+        login(usrname, password)
