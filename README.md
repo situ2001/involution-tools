@@ -1,12 +1,10 @@
-# 卷王的工具 (Early version)
+# 卷王的工具 (能 用 了)
 
 ## 想法
 
 学校虽为双非，但卷王肯定不少，由于卷王喜欢知道他人的排名和绩点，所以我就写了这工具(?)
 
 ## 使用说明
-
-Note: 目前就只是一个很普通的单功能脚本...
 
 ~~我觉得这repo的README用中文写效果更好~~
 
@@ -18,6 +16,8 @@ Note: 目前就只是一个很普通的单功能脚本...
 第一次使用前
 
 ``` shell
+git clone https://github.com/situ2001/involution-tools.git
+cd involution-tools
 pip install -r requirements.txt
 ```
 
@@ -42,4 +42,4 @@ python run.py parse
 - [x] single querying
 - [ ] more method of parsing the data
 - [ ] single querying for others stu_id
-- [ ] better logic in run.py
+- [ ] refine the logic in run.py
