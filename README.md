@@ -44,10 +44,10 @@ python run.py parse
 
 [![yB4DyT.jpg](https://s3.ax1x.com/2021/02/11/yB4DyT.jpg)](https://imgchr.com/i/yB4DyT)
 
-## TODO
+## TODO(s)
 
 - [x] ~~use `argparse` for better user experience~~
 - [x] ~~single querying~~
-- [ ] more method of parsing the data
+- [ ] export result to csv
 - [ ] single querying for others stu_id
 - [ ] refine the logic in run.py

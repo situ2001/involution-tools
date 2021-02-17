@@ -30,5 +30,6 @@ def load_from_cookies(usrname):
     
     if not test_connection(msession.urls.jwxt, '个人信息'):
         print ('Failed, please login again manually')
+        session.cookies.clear()
         password = input('Please input the password of {}:'.format(usrname))
         login(usrname, password)
