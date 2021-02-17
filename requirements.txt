@@ -2,4 +2,4 @@ matplotlib==3.3.3
 requests==2.25.1
 camelot_py==0.8.2
 urllib3==1.26.2
-camelot==13.04.13-gpl-pyqt
+opencv-python==4.5.1.48
