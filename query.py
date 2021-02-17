@@ -10,7 +10,7 @@ def clear_pdfs():
 def query_single(stu_id):
     download(stu_id)
 
-def query_multiple(stu_id, begin, end):
+def query_multiple(begin, end):
     for x in range(end - begin + 1):
         stu_id = str(begin + x)
         try:

@@ -10,7 +10,7 @@
 
 卷王可以（目前）通过该小工具来：
 
-1. 查询自己的
+1. 查询某个人的
 2. 查询一段的
 
 第一次使用前
@@ -30,13 +30,13 @@ For more detail, please run with `-h` argument.
 获取自己的
 
 ``` shell
-python run.py query --stu-id <你的学号> --query-mode single
+python run.py query --search <学号> --query-mode single
 ```
 
 获取一段学号的
 
 ``` shell
-python run.py query --stu-id <你的学号> --query-mode multiple --begin <号段初的学号> --end <号段末的学号>
+python run.py query --query-mode multiple --begin <号段初的学号> --end <号段末的学号>
 python run.py parse
 ```
 
@@ -49,5 +49,5 @@ python run.py parse
 - [x] ~~use `argparse` for better user experience~~
 - [x] ~~single querying~~
 - [ ] export result to csv
-- [ ] single querying for others stu_id
+- [x] ~~single querying for others stu_id~~
 - [ ] refine the logic in run.py
