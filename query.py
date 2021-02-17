@@ -17,5 +17,6 @@ def query_multiple(stu_id, begin, end):
             download(stu_id)
         except IndexError:
             print ('Index out of range, maybe the student has no gpa or is not found')
+            os.remove('pdfs{}{}.pdf'.format(os.sep, stu_id))
 
 clear_pdfs()
