@@ -12,7 +12,7 @@ parser.add_argument('--search', help="search specified student's score and rank 
 parser.add_argument('--query-mode', help='querying mode: single or multiple, the former one is default', default='single')
 parser.add_argument('--begin', help='the beginning of the range (inclusive, multiple mode)', type=int)
 parser.add_argument('--end', help='the end of range (inclusive, multiple mode)', type=int)
-parser.add_argument('--export', help='choose which format(csv) to export, leave blank for exporting jpg')
+parser.add_argument('--export', help='choose which format(csv) to export, leave blank for exporting jpg', default='jpg')
 args = parser.parse_args()
 
 # check the mode (simply test)
@@ -21,7 +21,8 @@ if args.mode == 'parse':
     from parse import parse
     if args.export == 'csv':
         parse('csv')
-    parse()
+    elif args.export == 'jpg':
+        parse()
     exit(0)
 
 ''' update: stu_id is optional
@@ -53,3 +54,9 @@ if args.mode == 'query':
             query.query_single(args.search)
         else:
             query.query_single(args.search)
+        if args.export:
+            from parse import parse
+            if args.export == 'csv':
+                parse('csv')
+            elif args.export == 'jpg':
+                parse()

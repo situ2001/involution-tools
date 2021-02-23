@@ -29,15 +29,19 @@ For more details, please run with `-h` argument.
 获取某个人的
 
 ``` shell
+# 单人
 python run.py query --search <学号> --query-mode single
-```
 
-获取一段学号的
-
-``` shell
+# 多人
 python run.py query --query-mode multiple --begin <号段初的学号> --end <号段末的学号>
-python run.py parse --export csv
-#or python run.py parse --export csv
+
+# 获取完后顺便解析的话，直接后面加 --export csv 如下
+python run.py query --query-mode multiple --begin <号段初的学号> --end <号段末的学号> --export csv
+
+# 解析./pdfs文件夹里面的已下载文件
+python run.py parse --export csv 
+# 或
+python run.py parse --export jpg
 ```
 
 下载的结果在pdfs文件夹里，目前是下一次删一次。解析的曲线图为`result.jpg`，解析生成的csv为`result.csv`。
@@ -48,4 +52,4 @@ python run.py parse --export csv
 - [x] ~~single querying~~
 - [x] ~~export result to csv~~
 - [x] ~~single querying for others stu_id~~
-- [ ] refine the logic in run.py
+- [x] ~~refine the logic in run.py~~
