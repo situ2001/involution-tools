@@ -12,12 +12,16 @@ parser.add_argument('--search', help="search specified student's score and rank 
 parser.add_argument('--query-mode', help='querying mode: single or multiple, the former one is default', default='single')
 parser.add_argument('--begin', help='the beginning of the range (inclusive, multiple mode)', type=int)
 parser.add_argument('--end', help='the end of range (inclusive, multiple mode)', type=int)
+parser.add_argument('--export', help='choose which format(csv) to export, leave blank for exporting jpg')
 args = parser.parse_args()
 
 # check the mode (simply test)
 # will be improved in next version
 if args.mode == 'parse':
-    import rank_parser
+    from parse import parse
+    if args.export == 'csv':
+        parse('csv')
+    parse()
     exit(0)
 
 ''' update: stu_id is optional
@@ -33,18 +37,19 @@ else:
 # check other args
 
 # check query_mode, begin and end
-if args.query_mode:
-    import query
-    if args.query_mode == 'multiple':
-        if args.begin and args.end:
-            query.query_multiple(args.begin, args.end)
-        else:
-            print ('please provide argument begin and end!')
+if args.mode == 'query':
+    if args.query_mode:
+        import query
+        if args.query_mode == 'multiple':
+            if args.begin and args.end:
+                query.query_multiple(args.begin, args.end)
+            else:
+                print ('please provide argument begin and end!')
+                exit(0)
+        elif not args.search:
+            print ('Please provide --search argument!')
             exit(0)
-    elif not args.search:
-        print ('Please provide --search argument!')
-        exit(0)
-    elif args.query_mode == 'single':
-        query.query_single(args.search)
-    else:
-        query.query_single(args.search)
+        elif args.query_mode == 'single':
+            query.query_single(args.search)
+        else:
+            query.query_single(args.search)
