@@ -8,11 +8,10 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('mode', help='mode: query or parse')
 #parser.add_argument('--stu-id', help='student ID which is used for login when using query mode')
-parser.add_argument('--search', help="search specified student's score and rank (single mode)")
-parser.add_argument('--query-mode', help='querying mode: single or multiple, the former one is default', default='single')
-parser.add_argument('--begin', help='the beginning of the range (inclusive, multiple mode)', type=int)
-parser.add_argument('--end', help='the end of range (inclusive, multiple mode)', type=int)
-parser.add_argument('--export', help='choose which format(csv) to export, leave blank for exporting jpg', default='jpg')
+parser.add_argument('--search', help="search specified student's score and rank")
+parser.add_argument('--begin', help='the beginning of the range (inclusive)', type=int)
+parser.add_argument('--end', help='the end of range (inclusive)', type=int)
+parser.add_argument('--export', help='choose which format(csv, jpg) to export')
 args = parser.parse_args()
 
 # check the mode (simply test)
@@ -35,28 +34,24 @@ else:
     #exit(0)
 '''
 
-# check other args
-
-# check query_mode, begin and end
 if args.mode == 'query':
-    if args.query_mode:
+    if args.search and args.begin and args.end:
+        print ('please do not provide them at the same time!')
+        exit(0)
+    
+    if args.search or (args.begin and args.end):
         import query
-        if args.query_mode == 'multiple':
-            if args.begin and args.end:
-                query.query_multiple(args.begin, args.end)
-            else:
-                print ('please provide argument begin and end!')
-                exit(0)
-        elif not args.search:
-            print ('Please provide --search argument!')
-            exit(0)
-        elif args.query_mode == 'single':
+        if args.search:
             query.query_single(args.search)
         else:
-            query.query_single(args.search)
-        if args.export:
-            from parse import parse
-            if args.export == 'csv':
-                parse('csv')
-            elif args.export == 'jpg':
-                parse()
+            query.query_multiple(args.begin, args.end)
+    else:
+        print ('please provide --search or (--begin AND --end)!')
+        exit(0)
+    
+    if args.export:
+        from parse import parse
+        if args.export == 'csv':
+            parse('csv')
+        elif args.export == 'jpg':
+            parse()

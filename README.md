@@ -30,13 +30,13 @@ For more details, please run with `-h` argument.
 
 ``` shell
 # 单人
-python run.py query --search <学号> --query-mode single
+python run.py query --search <学号>
 
 # 多人
-python run.py query --query-mode multiple --begin <号段初的学号> --end <号段末的学号>
+python run.py query --begin <号段初的学号> --end <号段末的学号>
 
 # 获取完后顺便解析的话，直接后面加 --export csv 如下
-python run.py query --query-mode multiple --begin <号段初的学号> --end <号段末的学号> --export csv
+python run.py query --begin <号段初的学号> --end <号段末的学号> --export csv
 
 # 解析./pdfs文件夹里面的已下载文件
 python run.py parse --export csv 

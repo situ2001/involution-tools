@@ -24,7 +24,7 @@ def parse(export=None):
       gpas = []
       for x in os.listdir(path=r'.{}pdfs'.format(os.sep)):
         try:
-          gpas.append(float(get_details(get_data_from_pdf(x))['gpa']))
+          gpas.append(float(get_details(get_data_from_pdf(x))['绩点']))
         except IndexError:
           print ('Index out of range')
         except ValueError:
