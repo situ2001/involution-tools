@@ -45,11 +45,3 @@ python run.py parse --export jpg
 ```
 
 下载的结果在pdfs文件夹里，目前是下一次删一次。解析的曲线图为`result.jpg`，解析生成的csv为`result.csv`。
-
-## TODO(s)
-
-- [x] ~~use `argparse` for better user experience~~
-- [x] ~~single querying~~
-- [x] ~~export result to csv~~
-- [x] ~~single querying for others stu_id~~
-- [x] ~~refine the logic in run.py~~

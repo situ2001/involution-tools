@@ -8,7 +8,8 @@ def parse(export=None):
   if export:
     if export == 'csv':
       with open('result.csv', 'w', newline='', encoding='utf-8-sig') as csvfile:
-        fieldnames = ['name', 'gpa']
+        #fieldnames = ['major', 'class', 'stu_id', 'name', 'gpa']
+        fieldnames = ['专业', '班级', '学号', '姓名', '绩点']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()

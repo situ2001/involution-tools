@@ -12,10 +12,16 @@ def get_data_from_pdf(stu_id):
     return res
 
 def get_details(res):
+    stu_id = re.findall(r'（学号：(?P<id>.*?)）', res)
+    _class = re.findall(r'专业(?P<class>.*?)班', res)
+    major = re.findall(r'[0-9]级(?P<major>.*?)专业', res)
     _name = re.findall(r'学生(?P<name>.*?)（学号', res)
     gpa = re.findall(r'gpa is (?P<gpa>.*?)/', res)
     
     return {
-        'name': _name[0],
-        'gpa': gpa[0]
+        '专业': major[0],
+        '班级': _class[0],
+        '学号': stu_id[0],
+        '姓名': _name[0],
+        '绩点': gpa[0]
     }
