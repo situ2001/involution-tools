@@ -2,6 +2,7 @@ import os
 import re
 import pickle
 import msession
+from ocr import ocr
 
 def login(username: str, password: str):
     session = msession.session
@@ -9,11 +10,12 @@ def login(username: str, password: str):
     lt = re.findall(r'name="lt" value="(.*)"', res.text)
 
     captcha_url = msession.urls.captcha
+    captcha_path = 'captcha.jpg'
     with session.get(captcha_url) as captcha:
-        with open('captcha.jpg', mode='wb') as captcha_jpg:
+        with open(captcha_path, mode='wb') as captcha_jpg:
             captcha_jpg.write(captcha.content)
-    captcha = input('验证码已生成于该目录下，请查看\n并输入验证码')
-            
+    #captcha = input('验证码已生成于该目录下，请查看\n并输入验证码')
+    captcha = ocr(captcha_path)
 
     login_form = {
         'username': username,
