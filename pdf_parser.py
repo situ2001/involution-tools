@@ -16,7 +16,7 @@ def get_details(res):
     _class = re.findall(r'专业(?P<class>.*?)班', res)
     major = re.findall(r'[0-9]级(?P<major>.*?)专业', res)
     _name = re.findall(r'学生(?P<name>.*?)（学号', res)
-    gpa = re.findall(r'gpa is (?P<gpa>.*?)/', res)
+    gpa = re.findall(r'绩点为：(?P<gpa>.*?)/', res)
     
     return {
         '专业': major[0],
