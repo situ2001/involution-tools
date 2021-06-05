@@ -43,7 +43,8 @@ def download(stu_id):
     #processing
     _name = re.findall(r'学生(?P<name>.*?)（学号', res)
     print ('%s, ' %(_name[0]), end='')
-    gpa = re.findall(r'gpa is (?P<gpa>.*?)/', res)
+    #gpa = re.findall(r'gpa is (?P<gpa>.*?)/', res)
+    gpa = re.findall(r'绩点为：(?P<gpa>.*?)/', res)
     print ('your GPA is %s/4.0' %(gpa[0]), end='')
     rank = re.findall(r'ranked (?P<rank>[\d]+) among (?P<total>[\d]+)', res)
     print (', rank is %s/%s' %(rank[0][0], rank[0][1]))
